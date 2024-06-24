@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
-    <artifactId>plugin-dal</artifactId>
+    <groupId>com.ly.arsenal</groupId>
+    <artifactId>plugin-tcconfigcenter</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
@@ -14,7 +14,10 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <!-- 请将此版本替换为 arex-agent-java 本地仓库的最新版本 -->
-        <arex.version>0.4.4</arex.version>
+        <arex.version>0.4.6</arex.version>
+
+        <version.junit-jupiter>5.8.2</version.junit-jupiter>
+        <mockito-junit-jupiter.version>4.7.0</mockito-junit-jupiter.version>
     </properties>
 
     <dependencies>
@@ -26,10 +29,43 @@
         </dependency>
         <!-- 此处仅为演示使用，实际开发中替换成你们公司需要mock的组件即可 -->
         <dependency>
-            <groupId>com.your.company.dal</groupId>
-            <artifactId>dalclient</artifactId>
-            <version>1.0.0</version>
+            <groupId>com.ly.tcbase</groupId>
+            <artifactId>configcenterclient</artifactId>
+            <version>6.2.8</version>
             <scope>provided</scope>
+        </dependency>
+
+
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${version.junit-jupiter}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${version.junit-jupiter}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>${version.junit-jupiter}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>${mockito-junit-jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-inline</artifactId>
+            <version>${mockito-junit-jupiter.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -63,7 +99,7 @@
                     <artifactSet>
                         <includes>
                             <!--只需要将扩展的插件打入到Jar包即可，格式为：{groupId}:{artifactId}-->
-                            <include>org.example:plugin-dal</include>
+                            <include>com.ly.arsenal:plugin-tcconfigcenter</include>
                         </includes>
                     </artifactSet>
                 </configuration>
